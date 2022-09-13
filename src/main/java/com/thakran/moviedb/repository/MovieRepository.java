@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface MovieRepository extends JpaRepository<Movie, Long> {
 
-    @Query(value = "SELECT m FROM Movie m ORDER BY m.rating DESC")
+    @Query(value = "SELECT m FROM Movie m ORDER BY m.rating ASC")
     List<Movie> getMoviesByRanking();
 
 }
