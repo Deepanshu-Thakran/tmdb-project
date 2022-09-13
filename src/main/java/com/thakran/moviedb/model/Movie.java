@@ -36,9 +36,6 @@ public class Movie implements Serializable {
     @Column(name = "rating")
     private Float rating;
 
-    @Column(name = "ranking")
-    private Integer ranking;
-
     @Column(name = "review")
     private String review;
 

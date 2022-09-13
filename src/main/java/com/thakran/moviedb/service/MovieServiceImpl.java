@@ -27,7 +27,7 @@ public class MovieServiceImpl implements MovieService{
     @Override
     public MovieListResponseDTO movieList() {
         MovieListResponseDTO response = new MovieListResponseDTO();
-        List<Movie> movieList = movieRepository.findAll();
+        List<Movie> movieList = movieRepository.getMoviesByRanking();
 
         if (movieList.isEmpty()) {
             return response.setStatus(204).setMessage("No records found!").setMovieList(null);
@@ -83,7 +83,7 @@ public class MovieServiceImpl implements MovieService{
         Integer ranking = Integer.valueOf(requestDTO.getRanking());
 
         Movie movieToBeAdded = new Movie().setTitle(requestDTO.getTitle()).setYear(year)
-                .setDescription(requestDTO.getDescription()).setRating(rating).setRanking(ranking)
+                .setDescription(requestDTO.getDescription()).setRating(rating)
                 .setReview(requestDTO.getReview()).setImgUrl(requestDTO.getImgUrl());
 
         try{
